@@ -5,6 +5,7 @@ from datetime import datetime
 
 #アプリケーション作成
 app = Flask(__name__)#アプリケーションのインスタンス化・実体化
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///key.db'
 db = SQLAlchemy(app)
 
@@ -23,7 +24,7 @@ class Post(db.Model):
 def quest():
     if request.method == 'GET':
         posts = Post.query.all()
-        return render_template('quest2022.html', posts=posts)
+        return render_template('quest.html', posts=posts)
 
     else:
         age = request.form.get('age')
